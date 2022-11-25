@@ -154,7 +154,7 @@ const AddUser = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Пріорітет сортування</Form.Label>
+                        <Form.Label>Розташування фото</Form.Label>
                         <Form.Select aria-label="Floating label select example" value={imgPosition} onChange={e => setImgPosition(e.target.value)}>
                             <option value="left">Ліворуч</option>
                             <option value="center">Посередині</option>
