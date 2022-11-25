@@ -6,8 +6,8 @@ const mysql = require("mysql2");
 
 const app = express()
 const router = express.Router();
-const HOST = '127.0.0.1'
-const PORT = 5000
+const HOST = process.env.HOST
+const PORT = process.env.PORT
 
 app.use(express.json());
 app.use(express.urlencoded({

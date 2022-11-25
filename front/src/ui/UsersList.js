@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useHttp } from '../hooks/http.hook'
-
+const config = require('../congif.json');
 
 const UserCard = ({ id, full_name, original_img, position, handleShow, setDeleteId }) => {
     return <Card style={{ width: '18rem' }}>
@@ -60,7 +60,7 @@ const UsersList = () => {
 
     const getUsers = async (id) => {
         try {
-            const res = await request(`http://localhost:5000/api/employes`)
+            const res = await request(`${config.API_URL}/api/employes`)
             if (res?.status === 200) {
                 setUsers(res.users)
             }
@@ -72,7 +72,7 @@ const UsersList = () => {
 
     const removeUsers = async () => {
         try {
-            const res = await request(`http://localhost:5000/api/employe/remove/${deleteId}`)
+            const res = await request(`${config.API_URL}/api/employe/remove/${deleteId}`)
             if (res?.status === 200) {
                 setDeleteId(0)
                 getUsers()
@@ -89,6 +89,7 @@ const UsersList = () => {
     console.log(users)
     return !loading && users ? <div>
         <Container>
+            <Row><h1>Список співробітників</h1></Row>
             <Row style={{ gap: "10px" }}>
                 {users.map(user => <Col><UserCard setDeleteId={setDeleteId} handleShow={handleShow} full_name={user.full_name} original_img={user.original_img} preview_img={user.preview_img} position={user.position} id={user.id} /></Col>)}
             </Row>

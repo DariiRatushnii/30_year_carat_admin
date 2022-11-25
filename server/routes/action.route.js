@@ -2,22 +2,6 @@ const express = require('express')
 const router = express.Router()
 const mysql = require("mysql2/promise");
 
-// const connection = mysql.createConnection({
-// host: "localhost",
-// user: process.env.MYSQL_USER,
-// database: process.env.MYSQL_DB,
-// password: process.env.MYSQL_PASSWORD
-// });
-
-// connection.connect(function (err) {
-//     if (err) {
-//         return console.error("Ошибка: " + err.message);
-//     }
-//     else {
-//         console.log("Подключение к серверу MySQL успешно установлено");
-//     }
-// });
-
 router.post('/employe', async (req, res, next) => {
     const { fullName, position, sortPriority, originalImg, previewImg, imgPosition, comments } = req.body // Список параметров
 

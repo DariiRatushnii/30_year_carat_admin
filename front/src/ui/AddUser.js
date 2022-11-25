@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import { useHttp } from '../hooks/http.hook'
 import { useParams } from 'react-router-dom';
+const config = require('../congif.json');
 
 const SuccessModal = ({ handleClose, show }) => {
 
@@ -90,7 +91,7 @@ const AddUser = () => {
 
     const getUserById = async (id) => {
         try {
-            const res = await request(`http://localhost:5000/api/employe/${id}`)
+            const res = await request(`${config.API_URL}/api/employe/${id}`)
             console.log(res)
             if (res?.status === 200) {
                 setFullName(res.user.full_name);
@@ -112,7 +113,7 @@ const AddUser = () => {
 
         const endpoint = params.id ? 'employe/edit' : 'employe'
         try {
-            const res = await request(`http://localhost:5000/api/${endpoint}`, 'POST', { fullName, position, sortPriority, originalImg, previewImg, id: params.id || -1, imgPosition, comments })
+            const res = await request(`${config.API_URL}/api/${endpoint}`, 'POST', { fullName, position, sortPriority, originalImg, previewImg, id: params.id || -1, imgPosition, comments })
 
             if (res?.status === 200) {
                 handleShow()

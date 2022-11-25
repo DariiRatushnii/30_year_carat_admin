@@ -20,6 +20,8 @@ function App() {
     </Navbar>
     
     <Routes>
+    <Route index element={<UsersList />} />
+
       <Route path="/user" >
         <Route path="list" index element={<UsersList />} />
         <Route path="add" element={<AddUser />} />
