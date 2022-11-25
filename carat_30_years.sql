@@ -1,29 +1,3 @@
-
-# SERVER FOLDER
-Для заупкска нужно установить зависимости
-
-Конект с БД и хост/порт сервера через .env с перемеными: 
-MYSQL_DB
-MYSQL_USER
-MYSQL_PASSWORD
-PORT // default "500"
-HOST // default "127.0.0.1"
-
-Для старта сервера ### `npm start`
-
-# FRONT FOLDER
-
-Для сообщения АПИ запросов с сервером нужно указать API URL.
-По умолчанию это http://localhost:5000. Изменения API URL в файле front/src/congif.json
-
-### npm run build 
-Билд приложения для деплоя
-
-# SQL
-
-### import structure
-
-
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -111,4 +85,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
