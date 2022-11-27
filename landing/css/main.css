@@ -1846,6 +1846,9 @@ body {
     .modal {
         padding: 0px;
     }
+    .modal__pic__wrap{
+        display: block;
+    }
 }
 
 .modal__line {
