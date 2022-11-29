@@ -270,6 +270,12 @@ $(function () {
   $(".down-arrow").click((e) => {
     document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   })
+  $(".header-text").click((e) => {
+    document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  })
+  $(".header-video").click((e) => {
+    document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  })
 
   const browserWidth = $(window).width();
 
