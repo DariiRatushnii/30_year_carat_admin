@@ -1839,14 +1839,17 @@ body {
     margin: 0 auto;
     padding: 0 1.5em 0;
 }
-.modal__pic__wrap{
+
+.modal__pic__wrap {
     display: flex;
 }
+
 @media screen and (max-width: 580px) {
     .modal {
         padding: 0px;
     }
-    .modal__pic__wrap{
+
+    .modal__pic__wrap {
         display: block;
     }
 }
@@ -2966,10 +2969,12 @@ main.home-page {
     .modal__wrapper {
         max-width: 600px;
     }
-    .modal__line{
+
+    .modal__line {
         padding: 40px 0 0;
     }
-    .modal__pic{
+
+    .modal__pic {
         width: 250px;
         height: 250px;
     }
@@ -3000,7 +3005,12 @@ main.home-page {
     .comments__text {
         font-size: 14px;
     }
-    .modal__pic__wrap{
+
+    .modal__pic__wrap {
         padding: 0;
     }
+}
+
+.down-arrow {
+    cursor: pointer;
 }

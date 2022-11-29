@@ -128,7 +128,7 @@ $emplyees = get_emplyees();
       </div>
 
       <div class="arrow-to-bottom">
-        <img src="./img/arrow_bottom.svg">
+        <img class="down-arrow" src="./img/arrow_bottom.svg">
       </div>
 
     </div>

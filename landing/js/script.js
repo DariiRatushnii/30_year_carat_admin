@@ -234,7 +234,7 @@ $(function () {
     comments.innerHTML = ''
     const donor = e.target.closest('.flip-card')
 
-    const imgPosition = donor.getAttribute('data-img-position') 
+    const imgPosition = donor.getAttribute('data-img-position')
     const donorPos = donor.getAttribute('data-pos')
     const donorName = donor.getAttribute('data-name')
     const donorImg = donor.querySelector('img').getAttribute('src')
@@ -245,7 +245,7 @@ $(function () {
     modal.classList.remove('mfp-hide')
     modal.classList.add('modal-open')
 
-    const modal__pic__wrap =  modal.querySelector('.modal__pic__wrap')
+    const modal__pic__wrap = modal.querySelector('.modal__pic__wrap')
     const img = modal.querySelector('.modal__pic img')
     const name = modal.querySelector('.modal__name')
     const pos = modal.querySelector('.modal__pos')
@@ -266,21 +266,10 @@ $(function () {
     img.setAttribute('src', donorImg)
 
   })
-  // .magnificPopup({
-  //   type: 'inline',
-  //   preloader: false,
-  //   fixedContentPos: true,
-  //   closeBtnInside: false,
-  //   showCloseBtn: false,
 
-  //   callbacks: {
-  //     elementParse: function (item) {
-  //       $(".modal__name").html(item.el.data("name"));
-  //       $(".modal__pos").html(item.el.data("pos"));
-  //       $(".modal__content p").html(item.el.data("info"));
-  //     }
-  //   }
-  // });
+  $(".down-arrow").click((e) => {
+    document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  })
 
   const browserWidth = $(window).width();
 
@@ -304,3 +293,5 @@ $(function () {
   });
 
 });
+
+
