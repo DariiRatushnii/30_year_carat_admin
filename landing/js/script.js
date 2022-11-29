@@ -267,31 +267,39 @@ $(function () {
 
   })
 
+  $('#modal').click(function (event) {
+    if ($('#modal.modal-open').length && !$(event.target).closest('.modal__wrapper').length && !$(event.target).is('.modal__wrapper')) {
+      document.body.style.overflow = 'inherit'
+      modal.classList.add('mfp-hide')
+      modal.classList.remove('modal-open')
+    }
+  });
+
   $(".down-arrow").click((e) => {
-    document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   })
   $(".header-text").click((e) => {
-    document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   })
   $(".header-video").click((e) => {
-    document.querySelector('.home-page').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   })
 
   const browserWidth = $(window).width();
 
   if (browserWidth > 580)
     $('#header-video-wraper').append(`<div class="header-video desctop-only">
-    <div class="header-video-back">
-      <img loading="lazy" class="preloder" id="preloder" src="/img/fps_1.jpg" />
-      <video id="player" autoplay="" muted="" loop="" loading="lazy">
-        <source src="/video/FL12_people_site_14.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>`)
+      <div class="header-video-back">
+        <img loading="lazy" class="preloder" id="preloder" src="/img/fps_1.jpg" />
+        <video id="player" autoplay="" muted="" loop="" loading="lazy">
+          <source src="/video/FL12_people_site_14.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>`)
   else
     $('#header-video-wraper').append(`<div class="header-mobile-poster mobile-only">
-  <img class="" loading="lazy" src="/img/mobile_video_placeholder.jpg" />
-</div>`)
+    <img class="" loading="lazy" src="/img/mobile_video_placeholder.jpg" />
+  </div>`)
 
   $('#player').on('loadeddata', (e) => {
     //Video should now be loaded
