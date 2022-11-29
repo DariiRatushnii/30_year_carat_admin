@@ -49,6 +49,9 @@ $(function () {
     }
   });
 
+  const browserWidth = $(window).width();
+
+
   $("form").validate({
     rules: {
       branch: {
@@ -240,6 +243,7 @@ $(function () {
     const donorImg = donor.querySelector('img').getAttribute('src')
     const donorBg = donor.getAttribute('data-bg')
     const donorComments = donor.getAttribute('data-comments') ? donor.getAttribute('data-comments').split('|') : null;
+    const donorMobBg = donor.getAttribute('data-mob-prev-img')
 
     document.body.style.overflow = 'hidden'
     modal.classList.remove('mfp-hide')
@@ -250,20 +254,28 @@ $(function () {
     const name = modal.querySelector('.modal__name')
     const pos = modal.querySelector('.modal__pos')
     const bg = modal.querySelector('.modal__line')
+    const mobBg = modal.querySelector('#modal_date_img')
 
     modal__pic__wrap.style.justifyContent = imgPosition;
     if (donorComments)
       donorComments.map((el, index) => {
-        const div = document.createElement('div')
-        div.classList.add('comments__text')
-        div.innerText = el
-        comments.appendChild(div)
+        if (el.length) {
+          const div = document.createElement('div')
+          div.classList.add('comments__text')
+          div.innerText = el
+          comments.appendChild(div)
+        }
       })
 
     name.innerText = donorName
     pos.innerText = donorPos
-    bg.style.background = `url(${donorBg})`
+    if (browserWidth <= 580) {
+      bg.style.background = "#2dc5f6"
+    } else {
+      bg.style.background = `url(${donorBg})`
+    }
     img.setAttribute('src', donorImg)
+    mobBg.setAttribute('src', donorMobBg)
 
   })
 
@@ -285,7 +297,6 @@ $(function () {
     document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   })
 
-  const browserWidth = $(window).width();
 
   if (browserWidth > 580)
     $('#header-video-wraper').append(`<div class="header-video desctop-only">

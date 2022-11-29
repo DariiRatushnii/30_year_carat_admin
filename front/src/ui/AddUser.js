@@ -77,6 +77,8 @@ const AddUser = () => {
     const [position, setPosition] = React.useState('')
     const [originalImg, setOriginalImg] = React.useState(null);
     const [previewImg, setPreviewImg] = React.useState(null);
+    const [mobPreviewImg, setMobPreviewImg] = React.useState(null);
+
     const [sortPriority, setSortPriority] = React.useState(5);
     const [imgPosition, setImgPosition] = React.useState('center');
     const [comments, setComments] = React.useState(['', '']);
@@ -100,6 +102,7 @@ const AddUser = () => {
                 setPreviewImg(res.user.preview_img)
                 setSortPriority(res.user.sort_priority)
                 setImgPosition(res.user.img_position)
+                setMobPreviewImg(res.user.mob_preview_img)
                 setComments([res?.comments[0].comment ?? '', res?.comments[1].comment ?? ''])
             }
         } catch (error) {
@@ -113,16 +116,20 @@ const AddUser = () => {
 
         const endpoint = params.id ? 'employe/edit' : 'employe'
         try {
-            const res = await request(`${config.API_URL}/api/${endpoint}`, 'POST', { fullName, position, sortPriority, originalImg, previewImg, id: params.id || -1, imgPosition, comments })
+            const res = await request(`${config.API_URL}/api/${endpoint}`, 'POST', { fullName, position, sortPriority, originalImg, previewImg, id: params.id || -1, imgPosition, mobPreviewImg, comments })
 
             if (res?.status === 200) {
                 handleShow()
+
                 if (params.id)
                     return true
-                setFullName('');
+
+                setFullName('')
                 setPosition('')
                 setOriginalImg(null)
                 setPreviewImg(null)
+                setMobPreviewImg(null)
+
             }
         } catch (error) {
             console.log(error)
@@ -171,6 +178,12 @@ const AddUser = () => {
                         <Form.Label>Фон співробітника</Form.Label>
                         <FileUploader stateSetter={setPreviewImg} image={previewImg} />
                     </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Роки роботи моб версія</Form.Label>
+                        <FileUploader stateSetter={setMobPreviewImg} image={mobPreviewImg} />
+                    </Form.Group>
+
                     <Comments setComments={setComments} comments={comments} />
                     <Button type='submit'>{params.id ? "Зберегти" : "Додати"}</Button>
                 </Form>

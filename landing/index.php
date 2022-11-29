@@ -112,7 +112,8 @@ $emplyees = get_emplyees();
 
     <?php foreach($emplyees as $emplye): ?>
       <div class="flip-card open-modal" data-name="<?=$emplye['full_name']?>" data-pos="<?=$emplye['position']?>"
-        data-bg="<?=$emplye['preview_img']?>" data-img-position="<?=$emplye['img_position']?>" data-comments="<?=get_emplyees_comments($emplye['id']);?>">
+        data-bg="<?=$emplye['preview_img']?>" data-img-position="<?=$emplye['img_position']?>" data-comments='<?=get_emplyees_comments($emplye['id']);?>'
+        data-mob-prev-img="<?=$emplye['mob_preview_img'] ?? ''?>">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <img src="<?=$emplye['original_img']?>" alt="Avatar">

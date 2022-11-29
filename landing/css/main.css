@@ -1793,6 +1793,7 @@ body {
 
     .mobile-only {
         display: block;
+        margin-bottom: 4px;
     }
 
     img.date-img {
@@ -1818,6 +1819,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 890px;
+    width: 100%;
     margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -2961,6 +2963,9 @@ main.home-page {
     position: fixed;
     outline: none !important;
     -webkit-backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1023.98px) {}

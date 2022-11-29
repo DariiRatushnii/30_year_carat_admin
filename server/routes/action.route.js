@@ -3,7 +3,7 @@ const router = express.Router()
 const mysql = require("mysql2/promise");
 
 router.post('/employe', async (req, res, next) => {
-    const { fullName, position, sortPriority, originalImg, previewImg, imgPosition, comments } = req.body // Список параметров
+    const { fullName, position, sortPriority, originalImg, previewImg, imgPosition, mobPreviewImg, comments } = req.body // Список параметров
 
     try {
         const connection = await mysql.createConnection({
@@ -12,7 +12,7 @@ router.post('/employe', async (req, res, next) => {
             database: process.env.MYSQL_DB,
             password: process.env.MYSQL_PASSWORD
         });
-        const [rows, fields] = await connection.execute('INSERT INTO `employees`(`full_name`, `position`, `sort_priority`, `original_img`, `preview_img`, `img_position`) VALUES (?,?,?,?,?, ?)', [fullName, position, sortPriority, originalImg, previewImg, imgPosition]);
+        const [rows, fields] = await connection.execute('INSERT INTO `employees`(`full_name`, `position`, `sort_priority`, `original_img`, `preview_img`, `img_position`, `mob_preview_img`) VALUES (?,?,?,?,?,?,?)', [fullName, position, sortPriority, originalImg, previewImg, imgPosition, mobPreviewImg]);
 
         await connection.execute('INSERT INTO `comments`(`comment`, `employe_id`) VALUES (?,?)', [comments[0], rows.insertId]);
         await connection.execute('INSERT INTO `comments`(`comment`, `employe_id`) VALUES (?,?)', [comments[1], rows.insertId]);
@@ -26,7 +26,7 @@ router.post('/employe', async (req, res, next) => {
 })
 
 router.post('/employe/edit', async (req, res, next) => {
-    const { fullName, position, sortPriority, originalImg, previewImg,imgPosition, comments, id } = req.body // Список параметров
+    const { fullName, position, sortPriority, originalImg, previewImg,imgPosition, mobPreviewImg, comments, id } = req.body // Список параметров
 
     try {
         const connection = await mysql.createConnection({
@@ -36,7 +36,7 @@ router.post('/employe/edit', async (req, res, next) => {
             password: process.env.MYSQL_PASSWORD
         });
 
-        await connection.execute('UPDATE `employees` SET `full_name`=?,`position`=?,`sort_priority`=?,`preview_img`=?,`original_img`=?,`img_position`=? WHERE id = ?', [fullName, position, sortPriority, previewImg, originalImg,imgPosition, id]);
+        await connection.execute('UPDATE `employees` SET `full_name`=?,`position`=?,`sort_priority`=?,`preview_img`=?,`original_img`=?,`img_position`=?, `mob_preview_img`=? WHERE id = ?', [fullName, position, sortPriority, previewImg, originalImg,imgPosition, mobPreviewImg, id]);
 
         await connection.execute('DELETE FROM `comments` WHERE employe_id = ?', [id]);
         await connection.execute('INSERT INTO `comments`(`comment`, `employe_id`) VALUES (?,?)', [comments[0], id]);
