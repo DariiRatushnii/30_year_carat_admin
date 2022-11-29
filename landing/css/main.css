@@ -3014,3 +3014,8 @@ main.home-page {
 .down-arrow {
     cursor: pointer;
 }
+
+.comments__wrap{
+    overflow: auto;
+    max-height: 200px;
+}
