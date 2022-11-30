@@ -1820,9 +1820,10 @@ body {
     flex-direction: column;
     max-width: 890px;
     width: 100%;
+    overflow: auto;
     margin: 0 auto;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+    max-height: 100vh;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;}
 
 .modal__close {
     color: #fff;
@@ -1862,8 +1863,8 @@ body {
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    padding: 60px 0 50px;
-    background: url('../img/bg.png');
+    padding: 5% 0 4%;
+    background: url(../img/bg.png);
     background-size: cover !important;
     background-position: center !important;
 }
@@ -1878,8 +1879,8 @@ body {
 .modal__pic {
     flex-grow: 0;
     flex-shrink: 0;
-    width: 300px;
-    height: 300px;
+    width: 33%;
+    height: 33%;
     display: block;
     margin-right: 30px;
 }

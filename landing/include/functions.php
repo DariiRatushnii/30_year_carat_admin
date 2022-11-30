@@ -3,8 +3,7 @@ require_once('config.php');
 
 function get_emplyees(){
     global $pdo;
-    $stmt = $pdo->prepare('SELECT * FROM `employees` 
-                             ORDER BY `employees`.`sort_priority` ASC');
+    $stmt = $pdo->prepare('SELECT * FROM `employees` ORDER BY rand()');
     $stmt->execute();
     $employees = $stmt->fetchAll();
     return  $employees;
