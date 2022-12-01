@@ -212,3 +212,7 @@ $emplyees = get_emplyees();
 </body>
 
 </html>
+
+<?php
+  $pdo = null;
+?>

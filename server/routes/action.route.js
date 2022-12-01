@@ -63,6 +63,8 @@ router.get('/employe/:id', async (req, res, next) => {
 
         const [rows, fields] = await connection.execute('SELECT * FROM `employees` WHERE `employees`.`id` = ?', [id]);
         const [comments, fileds2] = await connection.execute('SELECT * FROM `comments`  WHERE `employe_id` = ?', [id]);
+
+        connection.close();
         res.status(200).json({ status: 200, user: rows[0], comments })
 
     } catch (error) {
@@ -80,7 +82,7 @@ router.get('/employes', async (req, res, next) => {
         });
 
         const [rows, fields] = await connection.execute('SELECT * FROM `employees` ORDER BY `sort_priority` ASC');
-
+        connection.close();
         res.status(200).json({ status: 200, users: rows })
 
     } catch (error) {
@@ -101,7 +103,7 @@ router.get('/employe/remove/:id', async (req, res, next) => {
 
         await connection.execute('DELETE FROM `employees` WHERE id = ?', [id]);
         await connection.execute('DELETE FROM `comments` WHERE id = ?', [id]);
-
+        connection.close();
         res.status(200).json({ status: 200 })
 
     } catch (error) {
