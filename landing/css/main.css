@@ -2706,7 +2706,7 @@ img.under_item_img {
 }
 
 .footer {
-    margin: 80px 0 0;
+    /* margin: 80px 0 0; */
     padding: 80px 0 120px;
     background: #000000;
 }
@@ -2952,7 +2952,9 @@ img.under_item_img {
 }
 
 main.home-page {
-    margin: 8px 0 2em;
+    /* margin: 8px 0 2em; */
+    margin: 8px 0 80px;
+    display: none;
 }
 
 .modal-open {

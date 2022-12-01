@@ -288,13 +288,23 @@ $(function () {
   });
 
   $(".down-arrow").click((e) => {
-    document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    $('header').css({"height": "auto"})
+    $('.header-video').fadeOut(1000, () => {
+      $('.home-page').fadeIn()
+    })
   })
   $(".header-text").click((e) => {
-    document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    $('header').css({"height": "auto"})
+    $('.header-video').fadeOut(1000, () => {
+      $('.home-page').fadeIn()
+    })
   })
   $(".header-video").click((e) => {
-    document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    $('header').css({"height": "auto"})
+    $('.header-video').fadeOut(1000, () => {
+      $('.home-page').fadeIn()
+    })
+    // document.querySelector('.home-page').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   })
 
 
