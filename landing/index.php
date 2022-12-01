@@ -180,7 +180,7 @@ $emplyees = get_emplyees();
             <img loading="lazy" src="./img/users/Андрейченко Галина.jpg" alt="">
           </picture>
           <div class="mobile-only">
-            <img loading="lazy" class="date-img" src="./img/data.png" alt="">
+            <img loading="lazy" class="date-img" id="modal_date_img" src="./img/data.png" alt="">
           </div>
         </div>
       </div>
